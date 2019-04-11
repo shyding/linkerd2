@@ -49,17 +49,29 @@ UUID from the `linkerd-config` ConfigMap!
 ## edge-19.4.1
 
 * CLI
-  * Introduced an `upgrade` command! This allows an existing Linkerd control plane to be reinstalled or reconfigured; it is particularly useful for automatically reusing flags set in the previous `install` or `upgrade`
-  * The `inject` command proxy options are now converted into config annotations; the annotations ensure that these configs are persisted in subsequent resource updates
+  * Introduced an `upgrade` command! This allows an existing Linkerd control
+    plane to be reinstalled or reconfigured; it is particularly useful for
+    automatically reusing flags set in the previous `install` or `upgrade`
+  * The `inject` command proxy options are now converted into config
+    annotations; the annotations ensure that these configs are persisted in
+    subsequent resource updates
   * The `stat` command now always shows the number of open TCP connections
-  * **Breaking Change** Removed the `--disable-external-profiles` flag from the `install` command; external profiles are now disabled by default and can be enabled with the new `--enable-external-profiles` flag
+  * **Breaking Change** Removed the `--disable-external-profiles` flag from the
+    `install` command; external profiles are now disabled by default and can be
+     enabled with the new `--enable-external-profiles` flag
 * Controller
-  * The auto-inject admission controller webhook is updated to watch pods creation and update events; with this change, proxy auto-injection now works for all kinds of workloads, including StatefulSets, DaemonSets, Jobs, etc
+  * The auto-inject admission controller webhook is updated to watch pods
+    creation and update events; with this change, proxy auto-injection now
+    works for all kinds of workloads, including StatefulSets, DaemonSets,
+    Jobs, etc
 * Proxy
-  * Some `l5d-*` informational headers have been temporarily removed from requests and responses because they could leak information to external clients
+  * Some `l5d-*` informational headers have been temporarily removed from
+    requests and responses because they could leak information to external
+    clients
 * Web UI
   * The topology graph now shows TCP stats if no HTTP stats are available
-  * The resource detail page no longer shows blank tables if the resource only has TCP traffic
+  * The resource detail page no longer shows blank tables if the resource only
+    has TCP traffic
   * Added validation to the "new service profile" form (thanks @liquidslr!)
 
 ## edge-19.3.3
@@ -179,7 +191,8 @@ system!
     sized inotify buffer
 * Web UI
   * Removed 'Help' hierarchy and surfaced links on navigation sidebar
-  * Added a Debug page to the web dashboard, allowing you to introspect service discovery state
+  * Added a Debug page to the web dashboard, allowing you to introspect service
+    discovery state
   * Updated the resource detail page to start displaying a table with TCP stats
 * Internal
   * Enabled the following linters: `unparam`, `unconvert`, `goimports`,
